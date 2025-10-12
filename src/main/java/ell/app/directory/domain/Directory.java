@@ -9,16 +9,17 @@ import java.time.LocalDateTime;
 @Getter
 public class Directory {
     private final String id;
-    private final String groupId;
     private final String name;
     private final LocalDateTime createdAt;
     private final LocalDateTime updatedAt;
 
     @Nullable
+    private final String groupId;  // 개인 디렉토리면 null
+    @Nullable
     private final String parentId; // root 디렉토리면 null
 
-    private Directory(String id, String groupId, String name, LocalDateTime createdAt, LocalDateTime updatedAt,
-                      @Nullable String parentId) {
+    private Directory(String id, String name, LocalDateTime createdAt, LocalDateTime updatedAt,
+                      @Nullable String groupId, @Nullable String parentId) {
         this.id = id;
         this.groupId = groupId;
         this.name = name;
@@ -28,8 +29,7 @@ public class Directory {
     }
 
     public static Directory from(DirectoryDocument directoryDocument) {
-        return new Directory(directoryDocument.getId(), directoryDocument.getGroupId(),
-                directoryDocument.getName(), directoryDocument.getCreatedAt(), directoryDocument.getUpdatedAt(),
-                directoryDocument.getParentId());
+        return new Directory(directoryDocument.getId(), directoryDocument.getName(), directoryDocument.getCreatedAt(),
+                directoryDocument.getUpdatedAt(), directoryDocument.getGroupId(), directoryDocument.getParentId());
     }
 }

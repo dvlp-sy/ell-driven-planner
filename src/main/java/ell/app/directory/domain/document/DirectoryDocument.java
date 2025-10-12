@@ -11,11 +11,12 @@ import java.time.LocalDateTime;
 @Document(collection = "directory")
 public class DirectoryDocument implements MongoDocument {
     private final String id;
-    private final String groupId;
     private final String name;
     private final LocalDateTime createdAt;
     private final LocalDateTime updatedAt;
 
+    @Nullable
+    private final String groupId;   // 개인 디렉토리면 null
     @Nullable
     private final String parentId; // root 디렉토리면 null
 

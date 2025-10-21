@@ -1,9 +1,9 @@
 package app.diary.infrastructure;
 
 import app.diary.domain.document.DiaryDocument;
-import org.springframework.data.mongodb.repository.MongoRepository;
+import ell.planner.service.infrastructure.AdvancedMongoRepository;
 import org.springframework.stereotype.Repository;
 
 @Repository
-public interface DiaryRepository extends MongoRepository<DiaryDocument, String> {
+public interface DiaryRepository extends AdvancedMongoRepository<DiaryDocument, String> {
 }

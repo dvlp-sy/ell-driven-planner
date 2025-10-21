@@ -24,7 +24,7 @@ public class ExaLogLogEngine {
     public Map<String, Double> estimate(DataSourceType dataSourceType, String collection, ParsedQuery query) {
         Map<String, Double> result = new HashMap<>();
         long totalDocs = getCollectionCount(collection);
-        SketchRepository sketchRepository = sketchRepositoryFactory.getRepository(DataSourceType.MONGO);
+        SketchRepository sketchRepository = sketchRepositoryFactory.getRepository(dataSourceType);
 
 
         for (Predicate p : query.getPredicates()) {

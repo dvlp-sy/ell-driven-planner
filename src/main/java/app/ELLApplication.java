@@ -1,13 +1,13 @@
-package ell.planner;
+package app;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
 @SpringBootApplication
-public class PlannerApplication {
+public class ELLApplication {
 
 	public static void main(String[] args) {
-		SpringApplication.run(PlannerApplication.class, args);
+		SpringApplication.run(ELLApplication.class, args);
 	}
 
 }
